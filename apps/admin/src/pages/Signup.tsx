@@ -1,10 +1,6 @@
-"use client";
-
 import React, { useState } from "react";
 
-export function Signup(props: {
-  onClick: (email: string, password: string) => void;
-}): JSX.Element {
+export function Signup(): JSX.Element {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -17,7 +13,6 @@ export function Signup(props: {
       return;
     }
     setVisible(false);
-    props.onClick(email, password);
   };
 
   return (
