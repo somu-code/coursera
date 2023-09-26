@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Signin(): JSX.Element {
   const [email, setEmail] = useState("");
@@ -56,7 +57,9 @@ export function Signin(): JSX.Element {
           </button>
         </form>
         <div className="flex flex-row justify-center pb-5">
-          <p className="font-medium">Don't have an account?</p>
+          <Link to="/signup">
+            <p className="font-medium">Don't have an account?</p>
+          </Link>
         </div>
       </div>
     </div>
