@@ -13,7 +13,7 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use("/admin", adminRouter);
 
 app.get("/", async (req, res) => {
-  res.send("<h1>Hello, world!</h1>");
+  res.send("<h1>Hello, viewer</h1>");
 });
 
 app.listen(process.env.PORT, () => {
