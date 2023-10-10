@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./dist/js/index.mjs",
-    "tsc": "tsc",
     "build": "tsc -b"
   },
   "keywords": [],

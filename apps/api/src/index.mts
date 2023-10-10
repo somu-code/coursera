@@ -6,8 +6,7 @@ dotenv.config();
 const app = express();
 app.use(json());
 
-import { adminRouter } from "./routes/admin.mts";
-
+import { adminRouter } from "./routes/admin.mjs";
 
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
