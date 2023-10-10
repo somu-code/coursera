@@ -22,8 +22,9 @@ model Course {
 }
 
 model Admin {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  courses Course[]
+  id             Int      @id @default(autoincrement())
+  email          String   @unique
+  hashedPassword String
+  name           String?
+  courses        Course[]
 }
