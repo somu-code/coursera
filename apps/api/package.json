@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "dev": "nodemon ./dist/js/index.mjs",
-    "build": "tsc -b"
+    "dev": "nodemon dist/index.js",
+    "build-dev": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js && nodemon dist/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,8 @@
     "@types/express": "^4.17.17",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "esbuild": "^0.19.3"
   },
   "dependencies": {
     "cors": "^2.8.5",
