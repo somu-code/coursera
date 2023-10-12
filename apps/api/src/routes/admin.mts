@@ -3,6 +3,10 @@ import { prisma } from "@coursera-typescript/database";
 
 export const adminRouter = Router();
 
+adminRouter.get("/info", async (req, res) => {
+  res.send("<h1>Admin api</h1>");
+});
+
 adminRouter.post("/signup", async (req, res) => {
   try {
     const { email, password } = await req.body;
