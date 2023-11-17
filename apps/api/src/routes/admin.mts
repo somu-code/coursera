@@ -1,9 +1,7 @@
 import express, { Router } from "express";
-// import { PrismaClient } from "@coursera-typescript/database";
 import { prisma } from "@coursera-typescript/database";
 
 export const adminRouter = Router();
-// const prisma = new PrismaClient();
 
 adminRouter.get("/info", async (req, res) => {
   res.send("<h1>Admin api</h1>");
