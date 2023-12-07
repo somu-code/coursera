@@ -2,10 +2,11 @@
   "name": "@coursera-typescript/database",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "prisma migrate dev",
+    "generate": "prisma generate"
   },
   "keywords": [],
   "author": "",

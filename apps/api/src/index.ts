@@ -1,13 +1,17 @@
-import express, { json } from "express";
-import cors from "cors";
+import express, { Request, Response, Express } from "express";
+import path from "path";
 import dotenv from "dotenv";
-dotenv.config();
+import cors from "cors";
+import { adminRouter } from "./routes/admin.ts";
+import { userRouter } from "./routes/user.ts";
 
-const app = express();
-app.use(json());
+dotenv.config({
+  override: true,
+  path: path.join(__dirname, "../.env"),
+});
 
-import { adminRouter } from "./routes/admin.mjs";
-import { userRouter } from "./routes/user.mjs";
+const app: Express = express();
+app.use(express.json());
 
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
