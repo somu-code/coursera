@@ -1,5 +1,5 @@
 {
-  "name": "@coursera-typescript/ui",
+  "name": "@coursera/ui",
   "version": "0.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
@@ -17,6 +17,6 @@
     "react": "^18.2.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.2",
-    "@coursera-typescript/tailwind": "workspace:*"
+    "@coursera/tailwind": "workspace:*"
   }
 }

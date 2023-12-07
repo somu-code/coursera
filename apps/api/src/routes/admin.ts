@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { prisma } from "@coursera-typescript/database";
+import { prisma } from "@coursera/database";
 
 export const adminRouter = Router();
 
