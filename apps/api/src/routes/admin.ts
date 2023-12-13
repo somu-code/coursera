@@ -3,7 +3,7 @@ import { prisma } from "@coursera/database";
 
 export const adminRouter = Router();
 
-adminRouter.get("/info", async (req: Request, res: Response) => {
+adminRouter.get("/check-health", async (req: Request, res: Response) => {
   res.send("<h1>Admin api</h1>");
 });
 
