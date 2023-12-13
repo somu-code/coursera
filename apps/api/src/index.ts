@@ -25,6 +25,6 @@ app.get("/", async (req, res) => {
 
 app.listen(process.env.PORT, () => {
   console.log(
-    `Express server is listening on http://localhost:${process.env.PORT}`
+    `Express server is listening on http://localhost:${process.env.PORT}`,
   );
 });
