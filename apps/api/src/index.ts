@@ -2,6 +2,7 @@ import express, { Request, Response, Express } from "express";
 import path from "path";
 import dotenv from "dotenv";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { adminRouter } from "./routes/admin.ts";
 import { userRouter } from "./routes/user.ts";
 
