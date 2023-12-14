@@ -3,7 +3,7 @@ import { prisma } from "@coursera/database";
 import bcrypt from "bcrypt";
 import { authenticateUserJWT, generateUserJWT } from "../jwt-auth/user-auth";
 import { User, userPayload } from "../custom-types/user-types";
-import { Course, CourseFromDB } from "../custom-types/course-types";
+import { CourseFromDB } from "../custom-types/course-types";
 import z from "zod";
 
 export const userRouter: Router = Router();

@@ -135,7 +135,7 @@ adminRouter.get(
 adminRouter.post(
   "/logout",
   authenticateAdminJWT,
-  async (req: Request, res: Response) => {
+  async (_req: Request, res: Response) => {
     try {
       res.clearCookie("adminAccessToken");
       res.clearCookie("adminLoggedIn");
@@ -312,7 +312,7 @@ adminRouter.get(
 adminRouter.get(
   "/all-courses",
   authenticateAdminJWT,
-  async (req: Request, res: Response) => {
+  async (_req: Request, res: Response) => {
     try {
       const courses: CourseFromDB[] = await prisma.course.findMany();
       await prisma.$disconnect();
