@@ -1,1 +1,1 @@
-module.exports = require("@coursera-typescript/tailwind/tailwind.config");
+module.exports = require("@coursera/tailwind/tailwind.config");

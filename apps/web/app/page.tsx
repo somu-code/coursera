@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Card } from "@coursera-typescript/ui";
+import { Card } from "@coursera/ui";
 import styles from "./page.module.css";
 
 function Gradient({
