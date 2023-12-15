@@ -72,7 +72,6 @@ userRouter.post("/signin", async (req: Request, res: Response) => {
         domain: "localhost",
         path: "/",
         maxAge: 60 * 60 * 1000,
-        httpOnly: true,
         secure: true,
         sameSite: "strict",
       });

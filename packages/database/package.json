@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "prisma migrate dev",
+    "migrate-dev": "prisma migrate dev",
     "generate": "prisma generate"
   },
   "keywords": [],

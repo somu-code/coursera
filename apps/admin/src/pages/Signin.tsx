@@ -21,8 +21,7 @@ export function Signin(): JSX.Element {
         body: JSON.stringify({ email, password }),
       });
       if (response.ok) {
-        const jsonData = await response.json();
-        console.log(jsonData);
+        console.log(response.headers.get("adminAccessToken"));
         navigate("/");
       }
       if (response.status === 401 || response.status === 404) {
