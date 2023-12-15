@@ -1,13 +1,13 @@
 import { Router, Request, Response } from "express";
 import { prisma } from "@coursera/database";
 import bcrypt from "bcrypt";
-import { authenticateAdminJWT, generateAdminJWT } from "../jwt-auth/admin-auth";
-import { Admin, adminPayload } from "../custom-types/admin-types";
+import { authenticateAdminJWT, generateAdminJWT } from "../jwt-auth/admin-auth.js";
+import { Admin, adminPayload } from "../custom-types/admin-types.js";
 import {
   Course,
   CourseFromDB,
   CourseWithAdminId,
-} from "../custom-types/course-types";
+} from "../custom-types/course-types.js";
 import { inputSchema } from "@coursera/common";
 
 export const adminRouter: Router = Router();

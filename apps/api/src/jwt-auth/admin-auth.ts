@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { adminPayload } from "../custom-types/admin-types";
+import { adminPayload } from "../custom-types/admin-types.js";
 import { NextFunction, Request, Response } from "express";
 
 export function generateAdminJWT(adminPayload: adminPayload): string {

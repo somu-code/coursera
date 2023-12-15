@@ -1,9 +1,9 @@
 import { Router, Request, Response } from "express";
 import { prisma } from "@coursera/database";
 import bcrypt from "bcrypt";
-import { authenticateUserJWT, generateUserJWT } from "../jwt-auth/user-auth";
-import { User, userPayload } from "../custom-types/user-types";
-import { CourseFromDB } from "../custom-types/course-types";
+import { authenticateUserJWT, generateUserJWT } from "../jwt-auth/user-auth.js";
+import { User, userPayload } from "../custom-types/user-types.js";
+import { CourseFromDB } from "../custom-types/course-types.js";
 import { inputSchema } from "@coursera/common";
 
 export const userRouter: Router = Router();
