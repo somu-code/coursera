@@ -117,7 +117,7 @@ userRouter.get(
   }
 );
 
-userRouter.post("/logout", authenticateUserJWT, async (req, res) => {
+userRouter.post("/logout", authenticateUserJWT, async (_req, res) => {
   try {
     res.clearCookie("userAccessToken");
     res.clearCookie("userLoggedIn");
@@ -150,7 +150,7 @@ userRouter.delete("/delete", authenticateUserJWT, async (req, res) => {
 userRouter.get(
   "/all-courses",
   authenticateUserJWT,
-  async (req: Request, res: Response) => {
+  async (_req: Request, res: Response) => {
     try {
       const courseData: CourseFromDB[] = await prisma.course.findMany();
       await prisma.$disconnect();
