@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate-dev": "prisma migrate dev",
@@ -13,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "prisma": "^5.5.2"
+    "prisma": "^5.5.2",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@prisma/client": "5.5.2"

@@ -1,7 +1,10 @@
 import { Router, Request, Response } from "express";
 import { prisma } from "@coursera/database";
 import bcrypt from "bcrypt";
-import { authenticateAdminJWT, generateAdminJWT } from "../jwt-auth/admin-auth.js";
+import {
+  authenticateAdminJWT,
+  generateAdminJWT,
+} from "../jwt-auth/admin-auth.js";
 import { Admin, adminPayload } from "../custom-types/admin-types.js";
 import {
   Course,
@@ -61,7 +64,7 @@ adminRouter.post("/signin", async (req: Request, res: Response) => {
     } else {
       const isPasswordMatch: boolean = await bcrypt.compare(
         password,
-        adminData.hashedPassword,
+        adminData.hashedPassword
       );
       if (!isPasswordMatch) {
         return res.status(401).json({ message: "Invalid password" });
@@ -110,7 +113,7 @@ adminRouter.get(
       console.error(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
 
 adminRouter.post(
@@ -125,7 +128,7 @@ adminRouter.post(
       console.error(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
 
 adminRouter.delete(
@@ -148,7 +151,7 @@ adminRouter.delete(
       console.error(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
 
 // Courses
@@ -179,7 +182,7 @@ adminRouter.post(
       console.error(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
 
 adminRouter.put(
@@ -229,7 +232,7 @@ adminRouter.put(
       console.log(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
 
 adminRouter.delete(
@@ -268,7 +271,7 @@ adminRouter.delete(
       console.log(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
 
 adminRouter.get(
@@ -287,7 +290,7 @@ adminRouter.get(
       console.log(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
 
 adminRouter.get(
@@ -303,5 +306,5 @@ adminRouter.get(
       console.log(error);
       res.sendStatus(500);
     }
-  },
+  }
 );
