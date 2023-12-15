@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { serverApi } from "../serverApi";
 
 export function Signup(): JSX.Element {
   const [email, setEmail] = useState("");
@@ -6,13 +7,25 @@ export function Signup(): JSX.Element {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLInputElement>): void => {
+  const handleSubmit = async (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       setVisible(true);
       return;
     }
     setVisible(false);
+    try {
+      await fetch(`${serverApi}/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password })
+      })
+    } catch (error) {
+      console.error(error)
+
+    }
   };
 
   return (
