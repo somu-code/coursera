@@ -5,8 +5,6 @@ import { adminRouter } from "./routes/admin.js";
 import { userRouter } from "./routes/user.js";
 import cors from "cors";
 
-console.log("helloo");
-
 dotenv.config({
   override: true,
 });
@@ -29,7 +27,7 @@ app.get("/ping", async (_req: Request, res: Response) => {
 
 const server = app.listen(process.env.PORT, () => {
   console.log(
-    `Express server is listening on http://localhost:${process.env.PORT}`
+    `Express server is listening on http://localhost:${process.env.PORT}`,
   );
 });
 

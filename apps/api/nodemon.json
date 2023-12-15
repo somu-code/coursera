@@ -1,5 +1,4 @@
 {
-    "watch": ["src"],
-    "ext": "ts",
-    "exec": "tsc -d --outDir dist/js && node dist/js/index.js"
+        "watch": ["./src/**/*.ts"],
+    "exec":"ts-node --files ./src/index.ts" 
 }
