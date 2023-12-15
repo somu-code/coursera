@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const signupSchema = z.object({
+export const inputSchema = z.object({
   email: z
     .string()
     .email("This is not a valid email.")

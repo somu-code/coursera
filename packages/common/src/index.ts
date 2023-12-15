@@ -1,1 +1,1 @@
-export { signupSchema } from "./zod/zod-types";
+export { inputSchema } from "./zod/types";

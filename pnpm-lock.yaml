@@ -81,6 +81,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@coursera/common':
+        specifier: 'workspace: *'
+        version: link:../../packages/common
       '@coursera/database':
         specifier: workspace:*
         version: link:../../packages/database
