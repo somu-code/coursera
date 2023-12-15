@@ -6,8 +6,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc -b"
+    "build": "esbuild ./src/index.js --bundle --platform=node --outfile=dist/index.js",
+    "dev": "tsc -b && node dist/index.js"
   },
   "keywords": [],
   "author": "",
