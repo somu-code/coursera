@@ -75,14 +75,6 @@ userRouter.post("/signin", async (req: Request, res: Response) => {
         secure: true,
         sameSite: "strict",
       });
-
-      res.cookie("userLoggedIn", true, {
-        domain: "localhost",
-        path: "/",
-        maxAge: 60 * 60 * 1000,
-        secure: true,
-        sameSite: "strict",
-      });
       return res.json({ message: "Logged in successfully", email });
     }
   } catch (error) {
