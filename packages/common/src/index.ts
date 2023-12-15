@@ -1,1 +1,1 @@
-export { inputSchema } from "./zod/types";
+export { inputSchema } from "./zod/types.js";
