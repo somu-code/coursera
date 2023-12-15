@@ -1,14 +1,14 @@
 import express, { Request, Response, Express } from "express";
 import dotenv from "dotenv";
-import path from "path";
 import cookieParser from "cookie-parser";
 import { adminRouter } from "./routes/admin.js";
 import { userRouter } from "./routes/user.js";
 import cors from "cors";
 
+console.log("helloo");
+
 dotenv.config({
   override: true,
-  path: path.join(__dirname, "../.env"),
 });
 const app: Express = express();
 app.use(express.json());
