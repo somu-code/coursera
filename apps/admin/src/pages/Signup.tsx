@@ -3,13 +3,13 @@ import { serverApi } from "../serverApi";
 import { useNavigate } from "react-router-dom";
 
 export function Signup(): JSX.Element {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLInputElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       setVisible(true);
@@ -17,31 +17,29 @@ export function Signup(): JSX.Element {
     }
     setVisible(false);
     try {
-      await fetch(`${serverApi}/admin/signup`, {
+      await fetch(`${serverApi}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password })
-      })
+        body: JSON.stringify({ email, password }),
+      });
     } catch (error) {
-      console.error(error)
-
+      console.error(error);
     }
-    setEmail("")
-    setPassword("")
-    setConfirmPassword("")
-    navigate("/signin")
-
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    navigate("/signin");
   };
 
   return (
     <div className="min-h-[90vh] flex flex-row justify-center items-center">
-      <div
-        className="w-[430px] bg-slate-300 rounded-xl"
-        onSubmit={handleSubmit}
-      >
-        <form className="mx-auto py-8 flex flex-col gap-5 w-[330px]">
+      <div className="w-[430px] bg-slate-300 rounded-xl">
+        <form
+          className="mx-auto py-8 flex flex-col gap-5 w-[330px]"
+          onSubmit={handleSubmit}
+        >
           <h3 className="text-center font-bold text-[#1E0E62] text-4xl mb-6">
             Sign Up Now
           </h3>

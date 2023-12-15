@@ -4,7 +4,7 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import { adminRouter } from "./routes/admin.ts";
 import { userRouter } from "./routes/user.ts";
-import cors from "cors"
+import cors from "cors";
 
 dotenv.config({
   override: true,
@@ -29,7 +29,7 @@ app.get("/ping", async (_req: Request, res: Response) => {
 
 const server = app.listen(process.env.PORT, () => {
   console.log(
-    `Express server is listening on http://localhost:${process.env.PORT}`
+    `Express server is listening on http://localhost:${process.env.PORT}`,
   );
 });
 

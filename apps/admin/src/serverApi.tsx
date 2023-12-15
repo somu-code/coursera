@@ -1,1 +1,1 @@
-export const serverApi: string = "http://localhost:8080"
+export const serverApi: string = "http://localhost:8080/admin";

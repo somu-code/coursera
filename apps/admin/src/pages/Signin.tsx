@@ -1,21 +1,46 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { serverApi } from "../serverApi";
+import { useNavigate } from "react-router-dom";
 
 export function Signin(): JSX.Element {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLInputElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    try {
+      const response = await fetch(`${serverApi}/signin`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const jsonData = await response.json();
+        console.log(jsonData);
+        navigate("/");
+      }
+      if (response.status === 401 || response.status === 404) {
+        setVisible(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+    setEmail("");
+    setPassword("");
   };
 
   return (
     <div className="min-h-[90vh] flex flex-row justify-center items-center">
       <div className="w-[430px] bg-slate-300 rounded-xl">
         <form
-          onSubmit={handleSubmit}
           className="mx-auto py-8 flex flex-col gap-5 w-[330px]"
+          onSubmit={handleSubmit}
         >
           <h3 className="text-center font-bold text-[#1E0E62] text-4xl mb-6">
             Sign In
