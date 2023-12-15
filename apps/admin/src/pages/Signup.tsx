@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { serverApi } from "../serverApi";
+import { useNavigate } from "react-router-dom";
 
 export function Signup(): JSX.Element {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -15,7 +17,7 @@ export function Signup(): JSX.Element {
     }
     setVisible(false);
     try {
-      await fetch(`${serverApi}/signup`, {
+      await fetch(`${serverApi}/admin/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,6 +28,11 @@ export function Signup(): JSX.Element {
       console.error(error)
 
     }
+    setEmail("")
+    setPassword("")
+    setConfirmPassword("")
+    navigate("/signin")
+
   };
 
   return (
