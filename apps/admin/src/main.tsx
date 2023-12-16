@@ -6,6 +6,7 @@ import Navbar from "./components/navbar.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Signup } from "./pages/Signup.tsx";
 import { Signin } from "./pages/Signin.tsx";
+import { Card } from "@coursera/ui";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -15,7 +16,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/card" element={<Card />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

@@ -9,3 +9,5 @@ export const signupSchema = z.object({
     .max(254, "Email must be no longer than 254 characters."),
   password: z.string().min(8, "Password must be at least 8 characters long."),
 });
+
+export type signupType = z.infer<typeof signupSchema>;
