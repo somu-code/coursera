@@ -6,9 +6,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check-type": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "dev": "node dist/index.js",
-    "build": "esbuild ./src/index.ts --bundle --platform=node --target=es2020 --format=esm --outfile=dist/index.js",
+    "esbuild": "node esbuild.config.js",
     "build-manak": "esbuild ./src/index.ts --bundle --outdir=dist --platform=node --target=node14 --format=cjs"
   },
   "keywords": [],
