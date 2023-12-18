@@ -1,6 +1,5 @@
 import { Router, Request, Response } from "express";
 import { prisma } from "@coursera/database";
-import bcrypt from "bcrypt";
 import { authenticateUserJWT, generateUserJWT } from "../jwt-auth/user-auth.js";
 import { User, userPayload } from "../custom-types/user-types.js";
 import { CourseFromDB } from "../custom-types/course-types.js";
@@ -26,7 +25,7 @@ userRouter.post("/signup", async (req: Request, res: Response) => {
         await prisma.$disconnect();
         return res.status(403).json({ message: "User email already exists" });
       }
-      const hashedPassword: string = await bcrypt.hash(password, 8);
+      const hashedPassword: string = password;
       await prisma.user.create({
         data: {
           email: email,
@@ -56,10 +55,7 @@ userRouter.post("/signin", async (req: Request, res: Response) => {
     if (!userData) {
       return res.status(404).json({ message: "User email not found" });
     }
-    const isPasswordMatch: boolean = await bcrypt.compare(
-      password,
-      userData!.hashedPassword
-    );
+    const isPasswordMatch: boolean = password === userData.hashedPassword;
 
     if (!isPasswordMatch) {
       return res.status(401).json({ message: "Invalid password" });

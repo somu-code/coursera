@@ -8,16 +8,13 @@
   "scripts": {
     "check-type": "tsc --noEmit",
     "dev": "node dist/index.js",
-    "build": "esbuild ./src/index.ts --bundle --platform=node --outfile=dist/index.js",
-    "esbuild": "esbuild ./src/index.ts --bundle --platform=node --outfile=build/index.js",
-    "build-again": "esbuild ./src/index.ts --bundle --platform=node --target=es2020 --format=esm --loader:.ts=ts --loader:.html=file --external:mock-aws-s3 --external:aws-sdk --external:nock --outdir=dist",
-    "build-one": "esbuild ./src/index.ts --bundle --outdir=dist --platform=node --target=node14 --format=cjs"
+    "build": "esbuild ./src/index.ts --bundle --platform=node --target=es2020 --format=esm --outfile=dist/index.js",
+    "build-manak": "esbuild ./src/index.ts --bundle --outdir=dist --platform=node --target=node14 --format=cjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
     "@types/cookie-parser": "^1.4.6",
     "@types/cors": "^2.8.14",
     "@types/express": "^4.17.17",
@@ -29,7 +26,6 @@
   "dependencies": {
     "@coursera/common": "workspace:*",
     "@coursera/database": "workspace:*",
-    "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",

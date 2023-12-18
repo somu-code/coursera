@@ -1,6 +1,5 @@
 import { Router, Request, Response } from "express";
 import { prisma } from "@coursera/database";
-import bcrypt from "bcrypt";
 import {
   authenticateAdminJWT,
   generateAdminJWT,
@@ -32,7 +31,7 @@ adminRouter.post("/signup", async (req: Request, res: Response) => {
         await prisma.$disconnect();
         return res.status(403).json({ message: "Admin email already exists" });
       }
-      const hashedPassword: string = await bcrypt.hash(password, 8);
+      const hashedPassword: string = password;
       await prisma.admin.create({
         data: {
           email,
@@ -62,10 +61,7 @@ adminRouter.post("/signin", async (req: Request, res: Response) => {
     if (!adminData) {
       return res.status(404).json({ message: "Admin email not found" });
     } else {
-      const isPasswordMatch: boolean = await bcrypt.compare(
-        password,
-        adminData.hashedPassword
-      );
+      const isPasswordMatch = password === adminData.hashedPassword;
       if (!isPasswordMatch) {
         return res.status(401).json({ message: "Invalid password" });
       } else {
