@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "nodemon": "nodemon",
     "esbuild": "node esbuild.config.js",
-    "build-manak": "esbuild ./src/index.ts --bundle --outdir=dist --platform=node --target=node14 --format=cjs"
+    "build-manak": "esbuild ./src/index.ts --bundle --outdir=dist --platform=browser --target=node14 --format=esm"
   },
   "keywords": [],
   "author": "",
