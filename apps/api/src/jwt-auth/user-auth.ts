@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { Request, Response, NextFunction } from "express";
-import { userPayload } from "../custom-types/user-types.js";
+import type { Request, Response, NextFunction } from "express";
+import type { userPayload } from "../custom-types/user-types.js";
 
 export function generateUserJWT(userPayload: userPayload): string {
   return jwt.sign(userPayload, process.env.USER_TOKEN_SECRET!, {

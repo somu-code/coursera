@@ -1,8 +1,9 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import type { Request, Response } from "express";
 import { prisma } from "@coursera/database";
 import { authenticateUserJWT, generateUserJWT } from "../jwt-auth/user-auth.js";
-import { User, userPayload } from "../custom-types/user-types.js";
-import { CourseFromDB } from "../custom-types/course-types.js";
+import type { User, userPayload } from "../custom-types/user-types.js";
+import type { CourseFromDB } from "../custom-types/course-types.js";
 import { signupSchema } from "@coursera/common";
 
 export const userRouter: Router = Router();

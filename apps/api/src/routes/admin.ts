@@ -1,11 +1,12 @@
-import { Router, Request, Response } from "express";
+import type { Request, Response } from "express";
+import { Router } from "express";
 import { prisma } from "@coursera/database";
 import {
   authenticateAdminJWT,
   generateAdminJWT,
 } from "../jwt-auth/admin-auth.js";
-import { Admin, adminPayload } from "../custom-types/admin-types.js";
-import {
+import type { Admin, adminPayload } from "../custom-types/admin-types.js";
+import type {
   Course,
   CourseFromDB,
   CourseWithAdminId,

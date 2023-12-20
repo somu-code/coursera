@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import { adminPayload } from "../custom-types/admin-types.js";
-import { NextFunction, Request, Response } from "express";
+import type { adminPayload } from "../custom-types/admin-types.js";
+import type { NextFunction, Request, Response } from "express";
 
 export function generateAdminJWT(adminPayload: adminPayload): string {
   return jwt.sign(adminPayload, process.env.ADMIN_TOKEN_SECRET!, {
