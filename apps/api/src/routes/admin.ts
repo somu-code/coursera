@@ -22,7 +22,8 @@ adminRouter.post("/signup", async (req: Request, res: Response) => {
     if (!parsedInput.success) {
       return res
         .status(411)
-        .json({ message: parsedInput.error.issues[0].message });
+        .json({ message: "Invalid input" });
+      //        .json({ message: parsedInput.error.issues[0].message });
     } else {
       const { email, password }: { email: string; password: string } =
         parsedInput.data;

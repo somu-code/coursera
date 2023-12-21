@@ -14,7 +14,8 @@ userRouter.post("/signup", async (req: Request, res: Response) => {
     if (!parsedInput.success) {
       return res
         .status(411)
-        .json({ message: parsedInput.error.issues[0].message });
+        .json({ message: "invalid input" });
+      //        .json({ message: parsedInput.error.issues[0].message });
     } else {
       const { email, password }: { email: string; password: string } =
         parsedInput.data;
@@ -158,7 +159,7 @@ userRouter.post(
     try {
       const { courseId }: { courseId: number } = await req.body;
       const decodedUser: decodedUser = req.decodedUser;
-      const result = await prisma.userCourses.create({
+      await prisma.userCourses.create({
         data: {
           user: {
             connect: { id: decodedUser.id },
