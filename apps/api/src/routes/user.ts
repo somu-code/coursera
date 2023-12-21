@@ -12,9 +12,7 @@ userRouter.post("/signup", async (req: Request, res: Response) => {
   try {
     const parsedInput = signupSchema.safeParse(req.body);
     if (!parsedInput.success) {
-      return res
-        .status(411)
-        .json({ message: "invalid input" });
+      return res.status(411).json({ message: "invalid input" });
       //        .json({ message: parsedInput.error.issues[0].message });
     } else {
       const { email, password }: { email: string; password: string } =
@@ -103,7 +101,7 @@ userRouter.get(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 userRouter.post("/logout", authenticateUserJWT, async (_req, res) => {
@@ -149,7 +147,7 @@ userRouter.get(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 userRouter.post(
@@ -178,7 +176,7 @@ userRouter.post(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 userRouter.get(
@@ -206,5 +204,5 @@ userRouter.get(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );

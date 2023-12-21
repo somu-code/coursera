@@ -20,9 +20,7 @@ adminRouter.post("/signup", async (req: Request, res: Response) => {
   try {
     const parsedInput = signupSchema.safeParse(req.body);
     if (!parsedInput.success) {
-      return res
-        .status(411)
-        .json({ message: "Invalid input" });
+      return res.status(411).json({ message: "Invalid input" });
       //        .json({ message: parsedInput.error.issues[0].message });
     } else {
       const { email, password }: { email: string; password: string } =
@@ -117,7 +115,7 @@ adminRouter.get(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 adminRouter.post(
@@ -132,7 +130,7 @@ adminRouter.post(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 adminRouter.delete(
@@ -155,7 +153,7 @@ adminRouter.delete(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 // Courses
@@ -186,7 +184,7 @@ adminRouter.post(
       console.error(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 adminRouter.put(
@@ -236,7 +234,7 @@ adminRouter.put(
       console.log(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 adminRouter.delete(
@@ -275,7 +273,7 @@ adminRouter.delete(
       console.log(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 adminRouter.get(
@@ -294,7 +292,7 @@ adminRouter.get(
       console.log(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
 
 adminRouter.get(
@@ -310,5 +308,5 @@ adminRouter.get(
       console.log(error);
       res.sendStatus(500);
     }
-  }
+  },
 );
