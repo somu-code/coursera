@@ -2,6 +2,7 @@ import express from "express";
 import type { Request, Response, Express } from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
 import { adminRouter } from "./routes/admin.js";
 import { userRouter } from "./routes/user.js";
 import cors from "cors";
@@ -10,6 +11,7 @@ dotenv.config({
   override: true,
 });
 const app: Express = express();
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
