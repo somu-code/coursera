@@ -3,14 +3,17 @@
     /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "es2022",
-    "verbatimModuleSyntax": true,
+    "target": "ES2022",
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
+    "isolatedModules": true,
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
+    /* If you're building for a library in a monorepo */
+    "composite": true,
+    "declarationMap": true,
     /* If NOT transpiling with TypeScript: */
     "moduleResolution": "Bundler",
     "module": "ESNext",
