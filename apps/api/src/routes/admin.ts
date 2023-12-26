@@ -12,7 +12,7 @@ import type {
   CourseWithAdminId,
 } from "../custom-types/course-types.js";
 import { signupSchema } from "@coursera/common";
-// import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 
 export const adminRouter: Router = Router();
 
@@ -32,8 +32,8 @@ adminRouter.post("/signup", async (req: Request, res: Response) => {
         await prisma.$disconnect();
         return res.status(403).json({ message: "Admin email already exists" });
       }
-      // const hashedPassword: string = await bcrypt.hash(password, 8);
-      const hashedPassword: string = password;
+      const hashedPassword: string = await bcrypt.hash(password, 8);
+      // const hashedPassword: string = password;
       await prisma.admin.create({
         data: {
           email,
@@ -63,11 +63,11 @@ adminRouter.post("/signin", async (req: Request, res: Response) => {
     if (!adminData) {
       return res.status(404).json({ message: "Admin email not found" });
     } else {
-      // const isPasswordMatch: boolean = await bcrypt.compare(
-      //   password,
-      //   adminData.hashedPassword
-      // );
-      const isPasswordMatch: boolean = password === adminData.hashedPassword;
+      const isPasswordMatch: boolean = await bcrypt.compare(
+        password,
+        adminData.hashedPassword,
+      );
+      // const isPasswordMatch: boolean = password === adminData.hashedPassword;
       if (!isPasswordMatch) {
         return res.status(401).json({ message: "Invalid password" });
       } else {
