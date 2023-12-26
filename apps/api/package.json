@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "lint": "tsc",
-    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --format=esm",
+    "esbuild": "esbuild src/index.ts --bundle --platform=node --loader:.ts=ts --outfile=dist/index.js --format=esm",
     "start": "node ./dist/index.js",
     "dev:tsc": "tsc --watch --preserveWatchOutput",
     "dev:node": "node --watch ./dist/index.js",
-    "dev:esbuild": "pnpm run build --watch",
+    "dev:esbuild": "pnpm run esbuild --watch",
     "dev": "run-p dev:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
